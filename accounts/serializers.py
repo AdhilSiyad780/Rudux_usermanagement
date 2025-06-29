@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
-        modal = CustomUser
+        model = CustomUser
         fields = ['username','password','email']
         extra_kwargs = {'password':{'write_only':True}}
     def create(self,validated_data):
@@ -18,4 +18,5 @@ class LoginSerializer(serializers.Serializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['id','usename','profile_image','is_admin']
+        fields = ['id','username','email','profile_image','is_admin']
+
